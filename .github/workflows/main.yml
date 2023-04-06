@@ -14,11 +14,17 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      
     - name: Setup kubectl
       uses: azure/setup-kubectl@v1
-    - name: Apply deployment manifest file
-      run: |
-        kubectl apply -f autoscaling.yaml
+        
+    - name: Deploy to Kubernetes
+      uses: appleboy/kubectl-action@master
+      with:
+        args: apply -f autoscaling.yaml
+      env:
+        KUBECONFIG: /home/davit_h/k8s-Horizontal-Pod-Autoscaler/kubeconfig.yaml
+
         
 
 
