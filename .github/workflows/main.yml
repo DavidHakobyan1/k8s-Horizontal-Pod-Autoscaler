@@ -11,10 +11,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Set up Minikube
-      uses: appleboy/minikube-action@v1.6.0
-      with:
-        minikube_version: 'latest'
+    - name: start minikube
+      id: minikube
+      uses: medyagh/setup-minikube@latest
     - name: Build Docker image
       uses: docker/build-push-action@v2
       with:
