@@ -19,5 +19,6 @@ jobs:
     - name: Apply deployment manifest file
       run: |
         kubectl apply -f autoscaling.yaml
+        
 
 
